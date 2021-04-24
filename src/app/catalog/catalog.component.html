@@ -1,0 +1,17 @@
+<div id="first">
+<div *ngFor="let category of cats" class="dropdown">
+  <button class="regB" (click)="setCategory(category.id)">{{category.name}}</button>
+  <div *ngIf="category.id !== 0" class="dropdown-content">
+    <div *ngFor="let subCat of getSubCat(category.id)">
+      <button (click)="setSubCatalog(subCat.id, category.id)" class="subCat">{{subCat.name}}</button>
+    </div>
+  </div>
+</div>
+</div>
+<div>
+  <app-subcatalog [currentCategory]="currentCategory" [currentSubCat]="currentSubCat"></app-subcatalog>
+</div>
+
+
+
+

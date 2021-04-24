@@ -1,0 +1,8 @@
+<div *ngIf="currentItem">
+  <img src="{{currentItem.image}}">
+  <p>{{ currentItem.name }}</p>
+  <input type="number" min="1" max="{{currentItem.quantity}}" value="1" [(ngModel)]="quantityty" (change)="changePrice()">
+  <span> {{quantityty*getPrice()}}₸</span><br>
+  <button id="delete" (click)="deleteItem(currentItem.id)">Remove</button>
+</div>
+
