@@ -1,0 +1,92 @@
+<div *ngIf="router.url !== '/login'" class="asd">
+  <div class="logo">
+    <a routerLink="/home"><img src="assets/img/logo2.jpg"></a>
+  </div>
+  <nav>
+    <a routerLink="/catalog" class="link-hover-center">Catalog</a>
+    <a routerLink="/home" class="link-hover-center">About Us</a>
+    <a routerLink="/home" class="link-hover-center">Contact Us</a>
+    <span *ngIf="!isLogged">
+      <a routerLink="/login"><button class="regB"><div class="cart"><img src="assets/img/cart.png"> </div> My Cart</button></a>
+      <a routerLink="/login"><button class="regB2">Log in</button></a>
+    </span>
+    <span *ngIf="isLogged">
+      <a routerLink="/cart"><button class="regB"><div class="cart"><img src="assets/img/cart.png"> </div> My Cart</button></a>
+      <button class="logout" (click)="logout()">Log out</button>
+    </span>
+  </nav>
+</div>
+<router-outlet></router-outlet>
+<div *ngIf="router.url !== '/login'" class="foot">
+<img src="assets/img/footer.jpg">
+<div class="mainfooter">
+  <div class="footer">
+    <ul class="ull ull2">
+      <li>Information</li>
+      <li>Blog</li>
+      <li>Vacancies</li>
+      <li>Help
+      </li>
+      <li>API
+      </li>
+      <li>Confidentiality
+      </li>
+      <li>Terms
+      </li>
+      <li>Popular accounts
+      </li>
+      <li>Hashtags
+      </li>
+      <li>Places
+      </li>
+
+    </ul>
+
+  </div>
+  <div class="selector">
+    <select>
+      <option value="0">English</option>
+      <option value="1">Afrikaans</option>
+      <option value="2">Čeština</option>
+      <option value="3">Dansk</option>
+      <option value="4">Deutsch</option>
+      <option value="5">Ελληνικά</option>
+      <option value="6">Русский</option>
+      <option value="7">English (UK)</option>
+      <option value="8">Español (España)</option>
+      <option value="9">Español</option>
+      <option value="10">Suomi</option>
+      <option value="11">Français</option>
+      <option value="12">Bahasa Indonesia</option>
+      <option value="13">Italiano</option>
+      <option value="14">日本語</option>
+      <option value="15">한국어</option>
+      <option value="16">Bahasa Melayu</option>
+      <option value="17">Norsk</option>
+      <option value="18">Nederlands</option>
+      <option value="19">Polski</option>
+      <option value="20">Português (Brasil)</option>
+      <option value="21">Português (Portugal)</option>
+      <option value="22">Svenska</option>
+      <option value="23">ภาษาไทย</option>
+      <option value="24">Filipino</option>
+      <option value="25">Türkçe</option>
+      <option value="26">中文(简体)</option>
+      <option value="27">中文(台灣)</option>
+      <option value="28">বাংলা</option>
+      <option value="29">ગુજરાતી</option>
+      <option value="30">हिन्दी</option>
+      <option value="31">Hrvatski</option>
+      <option value="32">Magyar</option>
+      <option value="33">ಕನ್ನಡ</option>
+      <option value="34">Français (Canada)</option>
+      <option value="35">Српски</option>
+      <option value="36">Українська</option>
+    </select>
+  </div>
+  <div class="copyright">© DoctorTut by Platina Inc, 2021</div>
+</div>
+</div>
+
+
+
