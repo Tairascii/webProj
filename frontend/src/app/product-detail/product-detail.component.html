@@ -1,0 +1,58 @@
+
+<img src="{{product.image}}">
+
+<form class="formoch">
+  <p id="name">{{product.name}}</p>
+  <div class="cont">
+    <div class="stars">
+        <input class="star star-5" id="star-5-2" type="radio" name="star" *ngIf="product.rating>=5" checked>
+        <label class="star star-5" for="star-5-2"></label>
+        <input class="star star-4" id="star-4-2" type="radio" name="star" *ngIf="product.rating>=4 && product.rating<5" checked>
+        <label class="star star-4" for="star-4-2"></label>
+        <input class="star star-3" id="star-3-2" type="radio" name="star" *ngIf="product.rating>=3  && product.rating<4" checked>
+        <label class="star star-3" for="star-3-2"></label>
+        <input class="star star-2" id="star-2-2" type="radio" name="star" *ngIf="product.rating>=2 && product.rating<3" checked>
+        <label class="star star-2" for="star-2-2"></label>
+        <input class="star star-1" id="star-1-2" type="radio" name="star" *ngIf="product.rating>=1 && product.rating<2" checked>
+        <label class="star star-1" for="star-1-2"></label>
+    </div>
+  </div>
+  <p><span id="price">Price: </span><br><span id="number">{{(product.price*430).toFixed(1)}}₸</span></p>
+  <p class="avail" *ngIf="product.quantity>0">Availability: {{product.quantity}} in stock</p>
+  <p class="avail notavail" *ngIf="product.quantity===0">Not Available</p>
+  <div class="line"></div>
+  <button *ngIf="product.quantity>0" (click)="addToCart(product)" class="addCart">Add to Cart</button>
+  <button *ngIf="product.quantity===0" disabled (click)="addToCart(product)" class="addCart">Add to Cart</button>
+</form>
+<div id="desc">
+  <h1>Description & features</h1>
+  <div class="line line2"></div>
+  <p>{{product.description}}</p>
+  <div class="line line2"></div>
+</div>
+<h1 id="mh">Comments</h1>
+<button *ngIf="!addBClick" (click)="addB()" class="dlt add">Add</button>
+<div *ngIf="addBClick" class="input">
+
+  <textarea [(ngModel)]="commentAdd" placeholder="Write your comment"></textarea>
+  <button (click)="newComment()" class="dlt add lul">Add</button>
+</div>
+
+
+<div *ngFor="let comment of comments">
+  <div class="comms">
+    <div class="left">
+      <span class="lol">{{comment.userName}}</span><span id="lel">· {{comment.date}}</span><br>
+      <span><span class="lol">Comment:</span> <br> <p>{{comment.comment}}</p></span>
+    </div>
+    <div id="right">
+      <button *ngIf="comment.userName === currentUserName && !updateBClick" class="dlt" (click)="editB(comment.id)">Edit</button>
+      <div *ngIf="updateBClick && comment.id === id">
+        <textarea [(ngModel)]="commentUpdate" placeholder="Edit your comment" class="lil"></textarea>
+        <button *ngIf="comment.userName === currentUserName && updateBClick" class="dlt dlt2" (click)="updateB(comment)">Apply</button>
+      </div>
+      <button *ngIf="comment.userName === currentUserName" class="dlt edit" (click)="deleteB(comment)">Delete</button><br>
+    </div>
+  </div>
+</div>
+
